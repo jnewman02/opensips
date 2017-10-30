@@ -42,7 +42,7 @@ void replicate_urecord_insert(urecord_t *r)
 	bin_packet_t packet;
 
 	if (bin_init(&packet, &repl_module_name, REPL_URECORD_INSERT, BIN_VERSION, 1024) != 0) {
-		LM_ERR("failed to replicate this event\n");
+		LM_DBG("failed to replicate this event\n");
 		return;
 	}
 
@@ -67,7 +67,7 @@ void replicate_urecord_insert(urecord_t *r)
 	return;
 
 error:
-	LM_ERR("replicate urecord insert failed\n");
+	LM_DBG("replicate urecord insert failed\n");
 	bin_free_packet(&packet);
 }
 
@@ -77,7 +77,7 @@ void replicate_urecord_delete(urecord_t *r)
 	bin_packet_t packet;
 
 	if (bin_init(&packet, &repl_module_name, REPL_URECORD_DELETE, BIN_VERSION, 1024) != 0) {
-		LM_ERR("failed to replicate this event\n");
+		LM_DBG("failed to replicate this event\n");
 		return;
 	}
 
@@ -102,7 +102,7 @@ void replicate_urecord_delete(urecord_t *r)
 	return;
 
 error:
-	LM_ERR("replicate urecord delete failed\n");
+	LM_DBG("replicate urecord delete failed\n");
 	bin_free_packet(&packet);
 }
 
@@ -113,7 +113,7 @@ void replicate_ucontact_insert(urecord_t *r, str *contact, ucontact_info_t *ci)
 	bin_packet_t packet;
 
 	if (bin_init(&packet, &repl_module_name, REPL_UCONTACT_INSERT, BIN_VERSION, 0) != 0) {
-		LM_ERR("failed to replicate this event\n");
+		LM_DBG("failed to replicate this event\n");
 		return;
 	}
 
@@ -163,7 +163,7 @@ void replicate_ucontact_insert(urecord_t *r, str *contact, ucontact_info_t *ci)
 	return;
 
 error:
-	LM_ERR("replicate ucontact insert failed\n");
+	LM_DBG("replicate ucontact insert failed\n");
 	bin_free_packet(&packet);
 }
 
@@ -174,7 +174,7 @@ void replicate_ucontact_update(urecord_t *r, str *contact, ucontact_info_t *ci)
 	bin_packet_t packet;
 
 	if (bin_init(&packet, &repl_module_name, REPL_UCONTACT_UPDATE, BIN_VERSION, 0) != 0) {
-		LM_ERR("failed to replicate this event\n");
+		LM_DBG("failed to replicate this event\n");
 		return;
 	}
 
@@ -224,7 +224,7 @@ void replicate_ucontact_update(urecord_t *r, str *contact, ucontact_info_t *ci)
 	return;
 
 error:
-	LM_ERR("replicate ucontact update failed\n");
+	LM_DBG("replicate ucontact update failed\n");
 	bin_free_packet(&packet);
 }
 
@@ -234,7 +234,7 @@ void replicate_ucontact_delete(urecord_t *r, ucontact_t *c)
 	bin_packet_t packet;
 
 	if (bin_init(&packet, &repl_module_name, REPL_UCONTACT_DELETE, BIN_VERSION, 0) != 0) {
-		LM_ERR("failed to replicate this event\n");
+		LM_DBG("failed to replicate this event\n");
 		return;
 	}
 
@@ -262,7 +262,7 @@ void replicate_ucontact_delete(urecord_t *r, ucontact_t *c)
 	return;
 
 error:
-	LM_ERR("replicate ucontact delete failed\n");
+	LM_DBG("replicate ucontact delete failed\n");
 	bin_free_packet(&packet);
 }
 
@@ -301,7 +301,7 @@ out:
 	return 0;
 
 out_err:
-	LM_ERR("failed to replicate event locally. dom: '%.*s', aor: '%.*s'\n",
+	LM_DBG("failed to replicate event locally. dom: '%.*s', aor: '%.*s'\n",
 		d.len, d.s, aor.len, aor.s);
 	return -1;
 }
