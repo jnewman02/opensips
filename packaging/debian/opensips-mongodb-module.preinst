@@ -1,6 +1,6 @@
 #!/bin/sh
 
-LIBMONGOC_NAME=libmongoc-1.0-0
+LIBMONGOC_NAME=libmongo-client-dev
 
 # check if libmongoc is installed
 dpkg -s $LIBMONGOC_NAME > /dev/null
