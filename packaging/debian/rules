@@ -177,7 +177,6 @@ CGRATES_MOD_PATH=$(addprefix modules/, $(CGRATES_MODULES))
 XML_PKGNAME = opensips-xml-module
 XML_MODULES = xml
 XML_MOD_PATH=$(addprefix modules/, $(XML_MODULES))
-MONGODB_PKGNAME = opensips-mongodb-module
 MONGODB_MODULES = cachedb_mongodb
 MONGODB_MOD_PATH=$(addprefix modules/, $(MONGODB_MODULES))
 
